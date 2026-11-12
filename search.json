@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "paper.html",
+    "href": "paper.html",
+    "title": "Vehicle Weight and Fuel Efficiency",
+    "section": "",
+    "text": "import pandas as pd\nimport numpy as np\nimport seaborn as sns\n\ndf = sns.load_dataset(\"mpg\")\n\ndf = df[[\"weight\", \"mpg\"]].dropna()\n\nprint(df.head(5))\n\n   weight   mpg\n0    3504  18.0\n1    3693  15.0\n2    3436  18.0\n3    3433  16.0\n4    3449  17.0\n\n\n\nIntroduction\nUrban sustainability is directly influence by transportation systems and environmental conditions which makes the vehicle fuel efficiency an important consideration in urban planning. This study investigates whether vehicle weight is associated with fuel efficiency, measured in miles per gallon (MPG).\n\n\nLiterature Review\nTransportation research has identified vehicle characteristics, including weight and engine performance, as important factors influencing fuel consumption. Although improved fuel efficiency may contribute to reducing fuel use and transportation-related emissions, its implications for public health depend on additional factors such as vehicle use, fuel type, and exposure to air pollution.\n\n\nMethod\nThis study uses the Seaborn MPG dataset, including 398 complete vehicle observations, to examine the relationship between vehicle weight and fuel efficiency. Pearson correlation analysis was used to test the null hypothesis of no population correlation against the alternative hypothesis of a negative correlation between vehicle weight and MPG.\n\n\nResults\n\n# Calculate correlation matrix\ncorrelation_matrix = df.corr()\n\n# correlation coefficient\nr = correlation_matrix.loc[\"weight\", \"mpg\"]\n\n# results\nprint(correlation_matrix)\nprint(f\"Pearson correlation: {r:.2f}\")\n\n          weight       mpg\nweight  1.000000 -0.831741\nmpg    -0.831741  1.000000\nPearson correlation: -0.83\n\n\nThe Pearson correlation between vehicle weight and fuel efficiency was r = {python} f\"{r:.2f}\", indicating a negative relationship.\nThe correlation coefficient suggests a strong linear association between vehicle weight and fuel efficiency.\n\n\nDiscussion\nThe findings suggest that vehicle weight is associated with fuel efficiency, highlighting the relevance of vehicle characteristics to sustainable transportation planning.However, because this analysis does not directly measure urban air pollution or human health, future research should examine how vehicle efficiency relates to environmental exposures and health outcomes in urban areas."
+  },
+  {
+    "objectID": "10sentencepaper/actula paper.html",
+    "href": "10sentencepaper/actula paper.html",
+    "title": "actula paper",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "10sentencepaper/actula paper.html#quarto",
+    "href": "10sentencepaper/actula paper.html#quarto",
+    "title": "actula paper",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  }
+]
