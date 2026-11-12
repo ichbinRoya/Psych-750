@@ -1,5 +1,19 @@
+
 project:
-  title: "paper"
+  type: website
+  output-dir: _site
 
+website:
+  title: "10-Sentence Research Paper"
+  navbar:
+    left:
+      - href: paper.qmd
+        text: Research Paper
 
+format:
+  html:
+    toc: true
+    theme: cosmo
 
+execute:
+  echo: true
