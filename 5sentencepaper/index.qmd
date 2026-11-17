@@ -1,0 +1,101 @@
+
+---
+title: "First - 5-Sentence Paper"
+subtitle: "Book Genre and Cover Color: A Chi-Square Analysis"
+author: "Roya Naamipouran"
+date: today
+abstract: "This study examines the association between book genre and book color using a fictional books dataset and a Chi-square test of independence."
+format:
+  html:
+    toc: true
+jupyter: python3
+execute:
+  echo: true
+  warning: false
+---
+
+# Introduction
+
+This study investigates whether book genre is associated with book color in a fictional books dataset.
+
+# Literature Review
+
+Book cover colors may reflect genre conventions and visual communication strategies that help readers recognize different types of books.
+
+# Method
+
+```{python}
+# Import libraries
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from scipy.stats import chi2_contingency
+
+# Load the dataset
+df = pd.read_csv("confident_fictional_books.csv")
+
+# Select variables and remove missing values
+df = df[["book_genre", "book_color"]].dropna()
+
+# Display first five observations
+print(df.head())
+
+# Number of observations
+n = len(df)
+```
+
+Using `{python} n` fictional book records, a Chi-square test of independence examines the relationship between genre and color under the null hypothesis that these variables are independent.
+
+# Results
+
+```{python}
+# Create contingency table
+contingency_table = pd.crosstab(
+    df["book_genre"],
+    df["book_color"]
+)
+
+print("Observed Frequencies:")
+print(contingency_table)
+
+# Chi-square test of independence
+chi2, p, dof, expected = chi2_contingency(
+    contingency_table
+)
+
+# Format p-value
+p_text = "p < .001" if p < 0.001 else f"p = {p:.3f}"
+
+# Check expected frequencies
+print("Minimum expected frequency:", expected.min())
+
+# Display results
+print(f"Chi-square statistic: {chi2:.2f}")
+print(f"Degrees of freedom: {dof}")
+print(p_text)
+```
+
+The Chi-square test found `{python} "a statistically significant" if p < 0.05 else "no statistically significant"` association between book genre and book color, χ²(`{python} dof`) = `{python} f"{chi2:.2f}"`, `{python} p_text`.
+
+```{python}
+# Visualize observed frequencies
+plt.figure(figsize=(10, 6))
+
+sns.heatmap(
+    contingency_table,
+    annot=True,
+    fmt="d",
+    cmap="YlGnBu"
+)
+
+plt.title("Book Genre and Book Color")
+plt.xlabel("Book Color")
+plt.ylabel("Book Genre")
+plt.tight_layout()
+plt.show()
+```
+
+# Discussion
+
+The findings `{python} "suggest an association" if p < 0.05 else "do not provide sufficient evidence of an association"` between book genre and color within this fictional dataset, although the results cannot be generalized to real-world publishing practices.
